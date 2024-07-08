@@ -3,11 +3,14 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NowayController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/Japikole', [NowayController::class, 'show']);
+Route::get('/Japikole', [NowayController::class, 'show'])->middleware('auth');
+
+Route::get('/users/list', [UserController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
