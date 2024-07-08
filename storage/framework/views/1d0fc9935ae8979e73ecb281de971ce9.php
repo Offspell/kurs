@@ -34,7 +34,10 @@
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   </tbody>
 </table>
+<?php echo e($users->links()); ?>
+
 </div>
+
 
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
