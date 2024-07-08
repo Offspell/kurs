@@ -9,38 +9,33 @@
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
 
-<div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    <div class="container">
-<table class="table table-hover">
+<div class="container mx-auto ">
+<table class="w-full">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Email</th>
-      <th scope="col">Imię</th>
-      <th scope="col">Nazwisko</th>
-      <th scope="col">Akcje</th>
+      <th class="text-center">#</th>
+      <th class="text-center">Email</th>
+      <th class="text-center">Imię</th>
+      <th class="text-center">Nazwisko</th>
+      <th class="text-center">Numer telefonu</th>
+      <th class="text-center">Akcje</th>
     </tr>
   </thead>
   <tbody>
     <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <tr>
-      <th scope="row"><?php echo e($user->id); ?></th>
-      <td><?php echo e($user->email); ?></td>
-      <td><?php echo e($user->name); ?></td>
-      <td></td>
+      <th class="text-center"><?php echo e($user->id); ?></th>
+      <td class="text-center"><?php echo e($user->email); ?></td>
+      <td class="text-center"><?php echo e($user->name); ?></td>
+      <td class="text-center"><?php echo e($user->surname); ?></td>
+      <td class="text-center"><?php echo e($user->phone_number); ?></td>
       <td></td>
     </tr>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   </tbody>
 </table>
 </div>
-</div>
-</div>
-</div>
-</div>
+
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal9ac128a9029c0e4701924bd2d73d7f54)): ?>
