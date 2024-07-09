@@ -30,10 +30,13 @@
 
             <!-- Page Content -->
             <main>
-                <?php echo e($slot); ?>
-
+            <?php echo $__env->yieldContent('content'); ?>;
             </main>
         </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script type='text/javascript'>
+        <?php echo $__env->yieldContent('javascript'); ?>;
+        </script>
     </body>
 </html>
 <?php /**PATH /var/www/kurs/resources/views/layouts/app.blade.php ENDPATH**/ ?>

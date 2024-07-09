@@ -8,9 +8,11 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/Japikole', [NowayController::class, 'show'])->middleware('auth');
+Route::get('/Japikole', [NowayController::class, 'show']);
 
-Route::get('/users/list', [UserController::class, 'index']);
+Route::get('/users/list', [UserController::class, 'index'])->middleware('auth');
+
+Route::delete('/users/{id}', [UserController::class, 'destroy'])->middleware('auth');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

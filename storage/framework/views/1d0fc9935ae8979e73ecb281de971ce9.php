@@ -1,14 +1,4 @@
-<?php if (isset($component)) { $__componentOriginal9ac128a9029c0e4701924bd2d73d7f54 = $component; } ?>
-<?php if (isset($attributes)) { $__attributesOriginal9ac128a9029c0e4701924bd2d73d7f54 = $attributes; } ?>
-<?php $component = App\View\Components\AppLayout::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
-<?php $component->withName('app-layout'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
-<?php $attributes = $attributes->except(\App\View\Components\AppLayout::ignoredParameterNames()); ?>
-<?php endif; ?>
-<?php $component->withAttributes([]); ?>
-
+<?php $__env->startSection('content'); ?>
 <div class="container mx-auto ">
 <table class="w-full">
   <thead>
@@ -29,7 +19,11 @@
       <td class="text-center"><?php echo e($user->name); ?></td>
       <td class="text-center"><?php echo e($user->surname); ?></td>
       <td class="text-center"><?php echo e($user->phone_number); ?></td>
-      <td></td>
+      <td class="text-center">
+        <button class="btn btn-danger btn-sm delete" data-id="<?php echo e($user->id); ?>">
+        X
+        </button>
+      </td>
     </tr>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   </tbody>
@@ -37,16 +31,25 @@
 <?php echo e($users->links()); ?>
 
 </div>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('javascript'); ?>
+  $(function() {
+      $('.delete').click(function() {
+        $.ajax({
+            method: "DELETE",
+            url: "http://kurs.local/users/" + $(this).data("id"),
+            <!-- data: { id: $(this).data("id") } -->
+        })
+        .done(function(response) {
 
-
- <?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__attributesOriginal9ac128a9029c0e4701924bd2d73d7f54)): ?>
-<?php $attributes = $__attributesOriginal9ac128a9029c0e4701924bd2d73d7f54; ?>
-<?php unset($__attributesOriginal9ac128a9029c0e4701924bd2d73d7f54); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginal9ac128a9029c0e4701924bd2d73d7f54)): ?>
-<?php $component = $__componentOriginal9ac128a9029c0e4701924bd2d73d7f54; ?>
-<?php unset($__componentOriginal9ac128a9029c0e4701924bd2d73d7f54); ?>
-<?php endif; ?>
-<?php /**PATH /var/www/kurs/resources/views/users/index.blade.php ENDPATH**/ ?>
+        })
+        .fail(function(response) {
+            alert("ERROR");
+        });
+      });
+  });
+<?php $__env->stopSection(); ?>
+  
+  
+  
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/kurs/resources/views/users/index.blade.php ENDPATH**/ ?>
