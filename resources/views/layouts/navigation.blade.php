@@ -39,6 +39,8 @@
                         </x-dropdown-link>
                     <x-dropdown-link href="/users/list">Użytkownicy
                     </x-dropdown-link>
+                    <x-dropdown-link href="{{ route('products.index')}}">Produkty
+                    </x-dropdown-link>
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">

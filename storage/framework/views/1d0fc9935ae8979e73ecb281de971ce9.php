@@ -34,17 +34,8 @@
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('javascript'); ?>
   $(function() {
-      $('.delete').click(function() {
-        $.ajax({
-            method: "DELETE",
-            url: "http://kurs.local/users/" + $(this).data("id"),
-            <!-- data: { id: $(this).data("id") } -->
-        })
-        .done(function(response) {
-
-        })
-        .fail(function(response) {
-            alert("ERROR");
+    $('.delete').click(function() {
+        axios.delete("http://kurs.local/users/" + $(this).data("id")).then(response => {
         });
       });
   });
