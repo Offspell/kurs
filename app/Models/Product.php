@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 
 class Product extends Model
 {
-    use HasFactory, Notifiable; 
+    use HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -16,6 +16,7 @@ class Product extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'image_path',
         'name',
         'description',
         'amount',

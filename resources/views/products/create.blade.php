@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('products.store') }}">
+    <form method="POST" action="{{ route('products.store') }}" enctype="multipart/form-data">
         @csrf
 
         <!-- Name -->
@@ -26,11 +26,11 @@
             <x-text-input id="price" step="0.01" min="0" class="block mt-1 w-full" type="number" name="price" :value="old('price')" required autocomplete="price" />
             <x-input-error :messages="$errors->get('price')" class="mt-2" />
         </div>
+        <div class="mt-4">
+            <x-input-label for="image" :value="__('Grafika')" />
+            <x-text-input id="image" class="form-control" type="file" name="image"/>
+        </div>
         <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                
-            </a>
-
             <x-primary-button class="ms-4">
                 Zapisz
             </x-primary-button>
