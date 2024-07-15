@@ -29,12 +29,12 @@
                             <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <div class="col-6 col-md-6 col-lg-4 mb-3">
                                     <div class="card h-100 border-0">
-                                        <div class="card-img-top">
+                                        <div class="flex justify-center">
                                             <?php if(!is_null($product->image_path)): ?>
-                                            <img src="<?php echo e(asset('storage/' . $product->image_path)); ?>"
-                                                class="img-fluid mx-auto d-block" alt="Zdjęcie produktu">
+                                            <img class="w-24 " src="<?php echo e(asset('storage/' . $product->image_path)); ?>"
+                                                class="mx-auto " alt="Zdjęcie produktu">
                                                 <?php else: ?>
-                                            <img src="https://via.placeholder.com/240x240/5fa9f8/efefef"
+                                            <img class="w-24"src="https://via.placeholder.com/240x240/5fa9f8/efefef"
                                                 class="img-fluid mx-auto d-block" alt="Zdjęcie produktu">
                                             <?php endif; ?>
                                         </div>

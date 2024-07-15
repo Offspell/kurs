@@ -29,6 +29,7 @@
         <div class="mt-4">
             <x-input-label for="image" :value="__('Grafika')" />
             <x-text-input id="image" class="form-control" type="file" name="image"/>
+            <x-input-error :messages="$errors->get('image')" class="mt-2" />
         </div>
         <div class="flex items-center justify-end mt-4">
             <x-primary-button class="ms-4">
