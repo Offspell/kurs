@@ -1,6 +1,7 @@
 <x-guest-layout>
     <form method="POST" action="{{ route('products.update', $product->id) }}" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
 
         <!-- Name -->
         <div>
@@ -31,15 +32,12 @@
             <x-text-input id="image" class="form-control" type="file" name="image"/>
             <x-input-error :messages="$errors->get('image')" class="mt-2" />
         </div>
-        <div class="mt-4 justify-content-center">
+        <div class="col-md-6">
             @if(!is_null($product->image_path))
-                <img src="{{ asset('storage/' . $product->image_path) }}" alt="Zdjęcie produktu">
-                @endif
+            <img src="{{ asset('storage/' . $product->image_path) }}" alt="Zdjęcie produktu"
+            @endif
         </div>
         <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-            </a>
-
             <x-primary-button class="ms-4">
                 Zapisz
             </x-primary-button>
