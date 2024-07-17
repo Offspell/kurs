@@ -32,19 +32,19 @@
                                 <div class="col-6 col-md-6 col-lg-4 mb-3">
                                     <div class="card h-100 border-0">
                                         <div class="flex justify-center">
-                                            @if(!is_null($product->image_path))
-                                            <img class="w-24 " src="{{ asset('storage/' . $product->image_path)}}"
-                                                class="mx-auto " alt="Zdjęcie produktu">
-                                                @else
-                                            <img class="w-24"src="https://via.placeholder.com/240x240/5fa9f8/efefef"
-                                                class="img-fluid mx-auto d-block" alt="Zdjęcie produktu">
+                                            @if (!is_null($product->image_path))
+                                                <img class="w-24 " src="{{ asset('storage/' . $product->image_path) }}"
+                                                    class="mx-auto " alt="Zdjęcie produktu">
+                                            @else
+                                                <img class="w-24"src="https://via.placeholder.com/240x240/5fa9f8/efefef"
+                                                    class="img-fluid mx-auto d-block" alt="Zdjęcie produktu">
                                             @endif
                                         </div>
                                         <div class="card-body text-center">
                                             <h4 class="card-title">
                                                 {{-- <a href="product.html"
                                                     class=" font-weight-bold text-dark text-uppercase small"> --}}
-                                                    {{ $product->name}}
+                                                {{ $product->name }}
                                                 {{-- </a> --}}
                                             </h4>
                                             <h5 class="card-price small text-warning">
@@ -54,103 +54,18 @@
                                     </div>
                                 </div>
                             @endforeach
-                            <div class="row sorting mb-5 mt-5">
-                                <div class="col-12">
-                                    <a class="btn btn-light">
-                                        <i class="fas fa-arrow-up mr-2"></i> Back to top</a>
-                                    <div class="btn-group float-md-right ml-3">
-                                        <button type="button" class="btn btn-lg btn-light"> <span
-                                                class="fa fa-arrow-left"></span> </button>
-                                        <button type="button" class="btn btn-lg btn-light"> <span
-                                                class="fa fa-arrow-right"></span> </button>
-                                    </div>
-                                    <div class="dropdown float-md-right">
-                                        <label class="mr-2">View:</label>
-                                        <a class="btn btn-light btn-lg dropdown-toggle" data-toggle="dropdown"
-                                            role="button" aria-haspopup="true" aria-expanded="false">12 <span
-                                                class="caret"></span></a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="#">12</a>
-                                            <a class="dropdown-item" href="#">24</a>
-                                            <a class="dropdown-item" href="#">48</a>
-                                            <a class="dropdown-item" href="#">96</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="col-md-4 order-md-1 col-lg-3 sidebar-filter">
-                        <h3 class="mt-0 mb-5">Produkty <span class="text-primary">{{ count($products)}}</span></h3>
-                        <h6 class="text-uppercase font-weight-bold mb-3">Categories</h6>
-                        <div class="mt-2 mb-2 pl-2">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="category-1">
-                                <label class="custom-control-label" for="category-1">Accessories</label>
-                            </div>
-                        </div>
-                        <div class="mt-2 mb-2 pl-2">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="category-2">
-                                <label class="custom-control-label" for="category-2">Coats &amp; Jackets</label>
-                            </div>
-                        </div>
-                        <div class="mt-2 mb-2 pl-2">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="category-3">
-                                <label class="custom-control-label" for="category-3">Hoodies &amp; Sweatshirts</label>
-                            </div>
-                        </div>
-                        <div class="mt-2 mb-2 pl-2">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="category-4">
-                                <label class="custom-control-label" for="category-4">Jeans</label>
-                            </div>
-                        </div>
-                        <div class="mt-2 mb-2 pl-2">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="category-5">
-                                <label class="custom-control-label" for="category-5">Shirts</label>
-                            </div>
-                        </div>
-                        <div class="mt-2 mb-2 pl-2">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="category-6">
-                                <label class="custom-control-label" for="category-6">Underwear</label>
-                            </div>
-                        </div>
-                        <div class="divider mt-5 mb-5 border-bottom border-secondary"></div>
-                        <h6 class="text-uppercase mt-5 mb-3 font-weight-bold">Size</h6>
-                        <div class="mt-2 mb-2 pl-2">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="filter-size-1">
-                                <label class="custom-control-label" for="filter-size-1">X-Small</label>
-                            </div>
-                        </div>
-                        <div class="mt-2 mb-2 pl-2">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="filter-size-2">
-                                <label class="custom-control-label" for="filter-size-2">Small</label>
-                            </div>
-                        </div>
-                        <div class="mt-2 mb-2 pl-2">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="filter-size-3">
-                                <label class="custom-control-label" for="filter-size-3">Medium</label>
-                            </div>
-                        </div>
-                        <div class="mt-2 mb-2 pl-2">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="filter-size-4">
-                                <label class="custom-control-label" for="filter-size-4">Large</label>
-                            </div>
-                        </div>
-                        <div class="mt-2 mb-2 pl-2">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="filter-size-5">
-                                <label class="custom-control-label" for="filter-size-5">X-Large</label>
-                            </div>
-                        </div>
+                        <h3 class="mt-0 mb-5">Produkty <span class="text-primary">{{ count($products) }}</span></h3>
+                        <h6 class="text-uppercase font-weight-bold mb-3">Kategorie</h6>
+                        @foreach ($categories as $category)
+                            <div class="mt-2 mb-2 pl-2">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="category-{{ $category->id }}">
+                                    <label class="custom-control-label" for="category-{{ $category->id }}">{{ $category->name }}</label>
+                                </div>
+                        @endforeach
                         <div class="divider mt-5 mb-5 border-bottom border-secondary"></div>
                         <h6 class="text-uppercase mt-5 mb-3 font-weight-bold">Price</h6>
                         <div class="price-filter-control">
@@ -163,7 +78,7 @@
                             data-slider-max="200" data-slider-step="5" data-slider-value="[50,150]" data-value="50,150"
                             style="display: none;">
                         <div class="divider mt-5 mb-5 border-bottom border-secondary"></div>
-                        <a href="#" class="btn btn-lg btn-block btn-primary mt-5">Update Results</a>
+                        <a href="#" class="btn btn-lg btn-block btn-primary mt-5">Filtruj</a>
                     </div>
                 </div>
             </div>
