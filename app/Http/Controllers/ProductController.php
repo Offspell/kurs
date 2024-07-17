@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProductRequest;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\ProductCategory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+
+use function PHPSTORM_META\map;
 
 class ProductController extends Controller
 {
@@ -25,7 +28,9 @@ class ProductController extends Controller
      */
     public function create(): View
     {
-        return view("products.create");
+        return view("products.create", [
+            'categories' => ProductCategory::all()
+        ]);
     }
 
     /**
@@ -57,7 +62,8 @@ class ProductController extends Controller
     public function edit(Product $product): View
     {
         return view("products.edit", [
-            'product' => $product
+            'product' => $product,
+            'categories' => ProductCategory::all()
         ]);
     }
 

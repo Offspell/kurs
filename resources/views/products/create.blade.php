@@ -27,6 +27,16 @@
             <x-input-error :messages="$errors->get('price')" class="mt-2" />
         </div>
         <div class="mt-4">
+            <x-input-label for="category" :value="__('Kategoria')" />
+            <select id="category" class="block mt-1 w-full" name="category_id" required ="category">
+                <option>Brak</option>
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+            <x-input-error :messages="$errors->get('category_id')" class="mt-2" />
+        </div>
+        <div class="mt-4">
             <x-input-label for="image" :value="__('Grafika')" />
             <x-text-input id="image" class="form-control" type="file" name="image"/>
             <x-input-error :messages="$errors->get('image')" class="mt-2" />

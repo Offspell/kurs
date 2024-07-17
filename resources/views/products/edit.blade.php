@@ -6,26 +6,36 @@
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Nazwa')" />
-            <x-text-input id="name" class="block mt-1 w-full" max length="500" type="text" name="name" :value="old($product->name)" required autofocus autocomplete="name" />
+            <x-text-input id="name" class="block mt-1 w-full" max length="500" type="text" name="name" :value="($product->name)"  autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
         <!-- Surname -->
         <div>
             <x-input-label for="description" :value="__('Opis')" />
-            <textarea id="description" max length="1500" class="block mt-1 w-full" type="text" name="description" :value="old($product->description)" required autofocus autocomplete="description"></textarea>
+            <textarea id="description" max length="1500" class="block mt-1 w-full" type="text" name="description" :value="($product->description)"  autofocus autocomplete="description"></textarea>
             <x-input-error :messages="$errors->get('description')" class="mt-2" />
         </div>
         <!-- Phone_number -->
         <div>
             <x-input-label for="amount" :value="__('Ilość')" />
-            <x-text-input id="amount" class="block mt-1 w-full" min="0" type="number" name="amount" :value="old($product->amount)" required autofocus autocomplete="amount" />
+            <x-text-input id="amount" class="block mt-1 w-full" min="0" type="number" name="amount" :value="($product->amount)" selected  autofocus autocomplete="amount" />
             <x-input-error :messages="$errors->get('amount')" class="mt-2" />
         </div>
         <!-- Email Address -->
         <div class="mt-4">
             <x-input-label for="price" :value="__('Cena')" />
-            <x-text-input id="price" step="0.01" min="0" class="block mt-1 w-full" type="number" name="price" :value="old($product->price)" required autocomplete="price" />
+            <x-text-input id="price" step="0.01" min="0" class="block mt-1 w-full" type="number" name="price" :value="($product->price)"  autocomplete="price" />
             <x-input-error :messages="$errors->get('price')" class="mt-2" />
+        </div>
+        <div class="mt-4">
+            <x-input-label for="category" :value="__('Kategoria')" />
+            <select id="category" class="block mt-1 w-full" name="category_id">
+                <option value="">Brak</option>
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}" @if($product->isSelectedCategory($category->id)) selected @endif>{{ $category->name }}</option>
+                @endforeach
+            </select>
+            <x-input-error :messages="$errors->get('category_id')" class="mt-2" />
         </div>
         <div class="mt-4">
             <x-input-label for="image" :value="__('Grafika')" />

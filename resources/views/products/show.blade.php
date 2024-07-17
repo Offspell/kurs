@@ -19,6 +19,16 @@
     <div class="mt-4">
         <x-input-label for="price" :value="__('Cena')" />
         <x-text-input id="price" step="0.01" min="0" class="block mt-1 w-full" :value="($product->price)" disabled />
-    <div class="flex items-center justify-end mt-4"
+    <div class="flex items-center justify-end mt-4"></div>
+
+    <div class="mt-4">
+        <x-input-label for="category" :value="__('Kategoria')" />
+        <select id="category" class="block mt-1 w-full" name="category_id" disabled>
+            @if($product->hasCategory())
+                <option>{{ $product->category->name }}</option>
+            @else
+                <option>Brak</option>
+            @endif
+        </select>
     </div>
 </x-guest-layout>
