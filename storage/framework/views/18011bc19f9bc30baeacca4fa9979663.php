@@ -35,8 +35,9 @@
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script type='text/javascript'>
-        <?php echo $__env->yieldContent('javascript'); ?>;
+        <?php echo $__env->yieldContent('javascript'); ?>
         </script>
+        <?php echo $__env->yieldContent('js-files'); ?>
     </body>
 </html>
 <?php /**PATH /var/www/kurs/resources/views/layouts/app.blade.php ENDPATH**/ ?>

@@ -79,7 +79,6 @@
                             </div>
                         </button>
                      <?php $__env->endSlot(); ?>
-
                      <?php $__env->slot('content', null, []); ?> 
                         <?php if (isset($component)) { $__componentOriginal68cb1971a2b92c9735f83359058f7108 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal68cb1971a2b92c9735f83359058f7108 = $attributes; } ?>
